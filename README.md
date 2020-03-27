@@ -1,1 +1,1 @@
-# homework-alg
+# HomeWork for Algorithm design class
