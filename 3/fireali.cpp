@@ -58,8 +58,8 @@ int main()
     }
    
     //
-    std::cout << " k  " << k << " res " << res << " \n " ;
-    prn(locks,n+1) ;
+    //std::cout << " k  " << k << " res " << res << " \n " ;
+    //prn(locks,n+1) ;
     
 
     int firstkey = 0 ;
@@ -88,7 +88,7 @@ int main()
     k-- ;
    
     //
-    std::cout << " rez : " << res << "\n" ;
+    //std::cout << " rez : " << res << "\n" ;
 
     int diff ;
     int ldiff ;
@@ -99,7 +99,7 @@ int main()
     while (k != 0 )
     {
         //
-        std::cout << " rez : " << res << " k:  " << k << " firstkey: " << firstkey << "\n" ;
+        //std::cout << " rez : " << res << " k:  " << k << " firstkey: " << firstkey << "\n" ;
         
         diff = 0 ;
         ldiff = 0 ;
@@ -130,9 +130,14 @@ int main()
                 {
                     tmpres++ ;
                     diff++ ;
+                    bool tnxbehnam = true ;
+                    if (maxdiff == diff)
+                    {
+                        tnxbehnam = false ;
+                    }
                     maxdiff = (maxdiff > diff) ? maxdiff : diff ;
                     //std::cout << " maxdif " << maxdiff  << " diff " << diff << " ldiff " << ldiff << " tmpres " << tmpres << "\n" ;
-                    if ( (maxdiff == ldiff && ldiff >= diff && tmpres!=diff) || maxdiff > diff ) 
+                    if ( (maxdiff == ldiff && ldiff >= diff && tmpres!=diff) || maxdiff > diff || (!tnxbehnam && tmpres!=diff)) 
                     {
                         locks[i] = 2 ;
                     }
@@ -170,9 +175,9 @@ int main()
     }
 
     //
-    std::cout << " rez : " << res << " k:  " << k << " firstkey: " << firstkey << "\n" ;
+    //std::cout << " rez : " << res << " k:  " << k << " firstkey: " << firstkey << "\n" ;
     
-    prn(locks,n+1);
+    //prn(locks,n+1);
 
     diff = 0 ;
     if ( locks[firstkey] == 0 )
@@ -185,7 +190,7 @@ int main()
         if (locks[i] == 1)
         {
             res += diff ;
-            std::cout << "diff " << diff << " res " << res << "\n" ;
+            //std::cout << "diff " << diff << " res " << res << "\n" ;
             diff = 0 ;
         }
     }
